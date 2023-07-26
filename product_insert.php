@@ -3,10 +3,10 @@ include "connect.php";
 
 $filename = $_FILES["photo"]["name"];
 $tempname = $_FILES["photo"]["tmp_name"];
-$folder = "./image/" . $filename;
+$folder = "./images/" . $filename;
 
-$sql = "INSERT INTO tbl_member (firstname, lastname, email, password, phone,photo,address)
-VALUES ('$_POST[firstname]','$_POST[lastname]','$_POST[email]','$_POST[password]','$_POST[phone]','$filename','$_POST[address]')";
+$sql = "INSERT INTO tbl_product (name,price,stock,photo,description)
+VALUES ('$_POST[name]','$_POST[price]','$_POST[stock]','$filename','$_POST[description]')";
 
 if ($conn->query($sql) === TRUE) {
   if (copy($tempname, $folder)) {
